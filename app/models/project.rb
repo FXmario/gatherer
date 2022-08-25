@@ -6,6 +6,6 @@ class Project
   end
 
   def done?
-    tasks.empty?(&:complete?)
+    tasks.all?(&:complete?)
   end
 end
