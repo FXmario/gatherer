@@ -1,10 +1,6 @@
-class Project
-  attr_accessor :tasks, :due_date
-  
-  def initialize
-    @tasks = []
-  end
-  
+class Project < ApplicationRecord
+  has_many :tasks, dependent: :destroy
+
   def incomplete_tasks
     tasks.reject(&:complete?)
   end
