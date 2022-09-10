@@ -25,7 +25,7 @@ class CreatesProject
   end
 
   def size_as_integer(size_string)
-    return 1 if size_string.blank
-    [size_as_integer.to_i, 1].max
+    return 1 if size_string.blank?
+    [size_string.to_i, 1].max
   end
 end
