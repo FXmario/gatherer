@@ -1,6 +1,10 @@
 class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
+  def self.velocity_length_in_days
+    21
+  end
+
   def incomplete_tasks
     tasks.reject(&:complete?)
   end
@@ -32,9 +36,5 @@ class Project < ApplicationRecord
   def on_schedule?
     return false if projected_days_remaining.nan?
     (Time.zone.today + projected_days_remaining) <= due_date
-  end
-
-  def self.velocity_length_in_days
-    21
   end
 end

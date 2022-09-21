@@ -19,7 +19,7 @@ class CreatesProject
 
   def convert_string_to_tasks
     task_string.split("\n").map do |one_task|
-      title, size_string, = one_task.split(":")
+      title, size_string = one_task.split(":")
       Task.new(title: title, size: size_as_integer(size_string))
     end
   end
